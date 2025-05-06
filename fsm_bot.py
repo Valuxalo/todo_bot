@@ -38,8 +38,6 @@ class FSMFillForm(StatesGroup):
 async def process_start_command(message: Message, state: FSMContext):
     await message.answer(text='Этот бот демонстрирует работу FSM\n\n'
                               'Чтобы перейти к заполнению анкеты - отправьте команду /fillform')
-    print(state.__dict__)
-    print(await state.get_state())
     
 @dp.message(Command(commands='cancel'), StateFilter(default_state))
 async def process_cancel_command(message: Message):
@@ -48,21 +46,19 @@ async def process_cancel_command(message: Message):
 @dp.message(Command(commands='cancel'), ~StateFilter(default_state))
 async def process_cancel_command_in_state(message: Message, state: FSMContext):
     await message.answer(text='Вы вышли из машины состояний.' \
-                              'ЧТобы снова перейти к заполнению анкеты введите /fillform')
+                              'Чтобы снова перейти к заполнению анкеты введите /fillform')
     await state.clear()
     
 @dp.message(Command(commands='fillform'), StateFilter(default_state))
 async def process_fillform_command(message: Message, state: FSMContext):
     await message.answer(text='Пожалуйста, введите своё имя')
     await state.set_state(FSMFillForm.fill_name) #устанавливаем состояния ожидания ввода имени
-    print(await state.get_state())
 
 @dp.message(StateFilter(FSMFillForm.fill_name), F.text.isalpha())
 async def process_name_sent(message: Message, state: FSMContext):
     await state.update_data(name=message.text)
     await message.answer(text='Спасибо!\n\nА теперь введите ваш возраст')
     await state.set_state(FSMFillForm.fill_age)
-    print(await state.get_state())
 
 @dp.message(StateFilter(FSMFillForm.fill_name))
 async def warning_not_name(message: Message):
@@ -178,7 +174,6 @@ async def process_wish_news_press(callback: CallbackQuery, state: FSMContext):
     await state.update_data(wish_news=callback.data == 'yes_news')
     user_dict[callback.from_user.id] = await state.get_data()
     await state.clear()
-    print(user_dict[callback.from_user.id])
     await callback.message.edit_text(
         text='Спасибо! Ваши данные сохранены\n\nВы вышли из машины состояний'
     )
