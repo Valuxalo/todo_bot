@@ -1,5 +1,6 @@
 import pandas as pd
 import logging
+from logging.handlers import RotatingFileHandler
 
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import CommandStart, Command, StateFilter
@@ -130,6 +131,14 @@ async def on_startup(dispatcher: Dispatcher, bot: Bot):
 
 if __name__ == '__main__':
     logging.basicConfig(
+    # handlers=[
+    #     RotatingFileHandler(
+    #         "logs/bot.log",
+    #         maxBytes=5*1024*1024,  # 5 MB
+    #         backupCount=3,
+    #         encoding='utf-8'
+    #     )
+    # ],
     level=logging.INFO,
     format='%(filename)s:%(lineno)d #%(levelname)-8s '
     '[%(asctime)s] - %(name)s -%(message)s',
