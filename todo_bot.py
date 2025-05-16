@@ -14,7 +14,6 @@ from config import Config, load_config
 from set_menu import set_main_menu
 from lexicon import LEXICON, LEXICON_COMMANDS_RU
 
-logger = logging.getLogger(__name__)
 
 
 config: Config = load_config()
@@ -130,9 +129,14 @@ async def on_startup(dispatcher: Dispatcher, bot: Bot):
 
 if __name__ == '__main__':
     logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO,
     format='%(filename)s:%(lineno)d #%(levelname)-8s '
     '[%(asctime)s] - %(name)s -%(message)s')
+    handlers=[
+        logging.FileHandler("logs/bot.log"),  # Запись в файл
+        logging.StreamHandler()
+    ]
+    logger = logging.getLogger(__name__)
 
     logger.info('Starting bot') #начало работы бота
     dp.startup.register(on_startup)
