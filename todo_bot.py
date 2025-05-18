@@ -115,9 +115,10 @@ async def process_name_sent(message: Message, state: FSMContext):
 
 @dp.message(Command(commands='clear'))
 async def process_cancel_command(message: Message):
+    global COUNTER
     logger.info('/clear')
     delete_data(PATH_TODO_TABLE)
-
+    COUNTER = 1
     await message.answer(text=LEXICON['clear'])
 
 @dp.message()
@@ -131,18 +132,17 @@ async def on_startup(dispatcher: Dispatcher, bot: Bot):
 
 if __name__ == '__main__':
     logging.basicConfig(
-    # handlers=[
-    #     RotatingFileHandler(
-    #         "logs/bot.log",
-    #         maxBytes=5*1024*1024,  # 5 MB
-    #         backupCount=3,
-    #         encoding='utf-8'
-    #     )
-    # ],
+    handlers=[
+        RotatingFileHandler(
+            "logs/bot.log",
+            maxBytes=5*1024*1024,  # 5 MB
+            backupCount=3,
+            encoding='utf-8'
+        )
+    ],
     level=logging.INFO,
     format='%(filename)s:%(lineno)d #%(levelname)-8s '
-    '[%(asctime)s] - %(name)s -%(message)s',
-    filename="logs/bot.log")
+    '[%(asctime)s] - %(name)s -%(message)s')
 
     logger = logging.getLogger(__name__)
 
