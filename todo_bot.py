@@ -13,8 +13,7 @@ from aiogram.fsm.state import default_state, State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
 from config import Config, load_config
 from set_menu import set_main_menu
-from lexicon import LEXICON, LEXICON_COMMANDS_RU
-from pathlib import Path
+from lexicon import LEXICON
 
 
 
@@ -123,7 +122,6 @@ async def process_cancel_command(message: Message):
 async def send_echo(message: Message):
     logger.info(F"Uknown text: {message.text}")
     await message.reply(text='Я ничего не понимаю :(')
-
 
 async def on_startup(dispatcher: Dispatcher, bot: Bot):
     await set_main_menu(bot)
