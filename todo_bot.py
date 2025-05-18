@@ -26,8 +26,6 @@ bot = Bot(BOT_TOKEN,
           default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher()
 
-
-
 def delete_data(PATH_TODO_TABLE) -> None:
     df = pd.read_csv(PATH_TODO_TABLE)
     df = df.iloc[0:0]
