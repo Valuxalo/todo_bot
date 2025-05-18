@@ -1,8 +1,9 @@
-
-todo_bot.py:147 #INFO     [2025-05-18 13:25:22,415] - __main__ -Starting bot
-dispatcher.py:527 #INFO     [2025-05-18 13:25:22,980] - aiogram.dispatcher -Start polling
-dispatcher.py:341 #INFO     [2025-05-18 13:25:23,028] - aiogram.dispatcher -Run polling for bot @valuxalobot id=6316297011 - 'Valya Kulakova Bot'
-todo_bot.py:81 #INFO     [2025-05-18 13:25:23,104] - __main__ -/all
-dispatcher.py:172 #INFO     [2025-05-18 13:25:23,918] - aiogram.event -Update id=657274497 is handled. Duration 814 ms by bot id=6316297011
-dispatcher.py:554 #INFO     [2025-05-18 13:25:27,487] - aiogram.dispatcher -Polling stopped
-dispatcher.py:359 #INFO     [2025-05-18 13:25:27,750] - aiogram.dispatcher -Polling stopped for bot @valuxalobot id=6316297011 - 'Valya Kulakova Bot'
+todo_bot.py:147 #INFO     [2025-05-18 13:29:10,728] - __main__ -Starting bot
+dispatcher.py:527 #INFO     [2025-05-18 13:29:10,940] - aiogram.dispatcher -Start polling
+dispatcher.py:341 #INFO     [2025-05-18 13:29:10,992] - aiogram.dispatcher -Run polling for bot @valuxalobot id=6316297011 - 'Valya Kulakova Bot'
+todo_bot.py:81 #INFO     [2025-05-18 13:29:36,280] - __main__ -/all
+dispatcher.py:172 #INFO     [2025-05-18 13:29:36,489] - aiogram.event -Update id=657274498 is handled. Duration 210 ms by bot id=6316297011
+todo_bot.py:117 #INFO     [2025-05-18 13:29:40,231] - __main__ -/clear
+dispatcher.py:172 #INFO     [2025-05-18 13:29:40,370] - aiogram.event -Update id=657274499 is handled. Duration 138 ms by bot id=6316297011
+dispatcher.py:554 #INFO     [2025-05-18 13:29:43,363] - aiogram.dispatcher -Polling stopped
+dispatcher.py:359 #INFO     [2025-05-18 13:29:43,626] - aiogram.dispatcher -Polling stopped for bot @valuxalobot id=6316297011 - 'Valya Kulakova Bot'
